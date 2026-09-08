@@ -1,0 +1,21 @@
+name: Build Next Js
+
+on:
+ push:
+   branches: [ master ]
+
+jobs:
+  build-nextJs:
+   runs-on: ubuntu-latest
+
+   steps:
+     - name: Checkout
+       uses: actions/checkout@v6.1.0
+     - name: Setup Node Js
+       uses: actions/setup-node@v6.5.0
+       with:
+         node-version: 22.x
+     - name: Instaill Dependencies
+       run: npm install
+     - name: Build Next Js
+       run: npm run build
